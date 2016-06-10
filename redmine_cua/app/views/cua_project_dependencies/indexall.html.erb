@@ -19,26 +19,27 @@
 <div class="autoscroll">
 <table class="list">
   <thead><tr>
-  <th><%= l(:field_project) %></th>
-  <th><%= l(:field_name) %></th>
-  <th><%= l(:field_version) %></th>
-  <th><%= l(:field_state) %></th>
-  <th><%= l(:field_update_to) %></th>
-  <th><%= l(:field_update_to_version) %></th>
-  <th><%= l(:field_last_update) %></th>
+  <th><%= link_to l(:field_project), {:action => 'indexall', :field => 'project_id', :order => ((@field=='project_id' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_name), {:action => 'indexall', :field => 'library', :order => ((@field=='library' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_version), {:action => 'indexall', :field => 'version', :order => ((@field=='version' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_state), {:action => 'indexall', :field => 'state', :order => ((@field=='state' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_update_to), {:action => 'indexall', :field => 'to_library', :order => ((@field=='to_library' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_update_to_version), {:action => 'indexall', :field => 'to_version', :order => ((@field=='to_version' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_last_update), {:action => 'indexall', :field => 'updated_at', :order => ((@field=='updated_at' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+    <th></th>
     <th></th>
   </tr></thead>
   <tbody>
 <% for dependency in @dependencies -%>
   <tr class="<%= (dependency.do_remove == true)? "toremove":"" %> <%= (dependency.do_update == true)? "toupdate":"" %> <%= cycle("odd", "even") %>">
-  <td class=""><%= dependency.project.name %></td>
+  <td class=""><%= link_to dependency.project.name, {:controller => 'cua_project_dependencies', :action=> 'index', :project_id => dependency.project} %></td>
   <td class=""><%= dependency.library %></td>
   <td class=""><%= dependency.version %></td>
   <td class=""><%= dependency.state %></td>
   <td class=""><%= dependency.to_library %></td>
   <td class=""><%= dependency.to_version %></td>
   <td class=""><%= format_time(dependency.updated_at) %></td>
-    <td class="buttons">
+    <td class="buttons">&nbsp;
     </td>
   </tr>
 <% end -%>

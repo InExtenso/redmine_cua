@@ -19,12 +19,12 @@
 <div class="autoscroll">
 <table class="list">
   <thead><tr>
-  <th><%= l(:field_name) %></th>
-  <th><%= l(:field_version) %></th>
-  <th><%= l(:field_state) %></th>
-  <th><%= l(:field_update_to) %></th>
-  <th><%= l(:field_update_to_version) %></th>
-  <th><%= l(:field_last_update) %></th>
+  <th><%= link_to l(:field_name), {:action => 'index', :field => 'library', :order => ((@field=='library' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_version), {:action => 'index', :field => 'version', :order => ((@field=='version' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_state), {:action => 'index', :field => 'state', :order => ((@field=='state' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_update_to), {:action => 'index', :field => 'to_library', :order => ((@field=='to_library' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_update_to_version), {:action => 'index', :field => 'to_version', :order => ((@field=='to_version' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_last_update), {:action => 'index', :field => 'updated_at', :order => ((@field=='updated_at' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
     <th></th>
   </tr></thead>
   <tbody>
@@ -36,7 +36,7 @@
   <td class=""><%= dependency.to_library %></td>
   <td class=""><%= dependency.to_version %></td>
   <td class=""><%= format_time(dependency.updated_at) %></td>
-    <td class="buttons">
+    <td class="buttons">&nbsp;
     </td>
   </tr>
 <% end -%>
