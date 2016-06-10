@@ -1,0 +1,17 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  field_state: "State"
+  field_update_to: "Update to"
+  field_update_to_version: "Update version"
+  field_last_update: "Last update"
+  field_count: "Cound"
+  installed: "Installed"
+  removed: "Removed"
+  update: "To update"
+  install: "To install"
+  remove: "To remove"
+  all_dependencies: "All dependencies"
+  dependencies: "dependencies"
+  state_count: "Statistic"
+  project_dependencies: "Project's dependencies"

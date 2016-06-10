@@ -1,0 +1,75 @@
+
+<style type="text/css">
+.toremove{
+	background-color: red;
+	color: white;
+	font-weight: bold;
+}
+.toupdate{
+	background-color: orange;
+}
+
+</style>
+
+<div class="contextual">
+
+</div>
+<h2><%= l(:all_dependencies) %></h2>
+<% if @dependencies.any? %>
+<div class="autoscroll">
+<table class="list">
+  <thead><tr>
+  <th><%= l(:field_project) %></th>
+  <th><%= l(:field_name) %></th>
+  <th><%= l(:field_version) %></th>
+  <th><%= l(:field_state) %></th>
+  <th><%= l(:field_update_to) %></th>
+  <th><%= l(:field_update_to_version) %></th>
+  <th><%= l(:field_last_update) %></th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+<% for dependency in @dependencies -%>
+  <tr class="<%= (dependency.do_remove == true)? "toremove":"" %> <%= (dependency.do_update == true)? "toupdate":"" %> <%= cycle("odd", "even") %>">
+  <td class=""><%= dependency.project.name %></td>
+  <td class=""><%= dependency.library %></td>
+  <td class=""><%= dependency.version %></td>
+  <td class=""><%= dependency.state %></td>
+  <td class=""><%= dependency.to_library %></td>
+  <td class=""><%= dependency.to_version %></td>
+  <td class=""><%= format_time(dependency.updated_at) %></td>
+    <td class="buttons">
+    </td>
+  </tr>
+<% end -%>
+  </tbody>
+</table>
+</div>
+<% else %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+
+<% content_for :sidebar do %>
+<h3><%= l(:state_count) %></h3>
+<% if @states.any? %>
+<div class="">
+<table class="list">
+  <thead><tr>
+  <th><%= l(:field_state) %></th>
+  <th><%= l(:field_count) %></th>
+  </tr></thead>
+  <tbody>
+<% for state in @states -%>
+  <tr class="<%= cycle("odd", "even") %>">
+  <td class=""><%= l(state[0]) %></td>
+  <td class=""><%= state[1] %></td>
+  </tr>
+<% end -%>
+  </tbody>
+</table>
+</div>
+
+<% else %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+<% end %>
