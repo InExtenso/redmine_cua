@@ -1,5 +1,5 @@
 # redmine_cua
-Plugin for Redmine for display CUA result
+Plugin for Redmine for display [CUA](https://github.com/InExtenso/redmine_cua) result
 
 # Install
 
