@@ -32,7 +32,7 @@
   <tbody>
 <% for dependency in @dependencies -%>
   <tr class="<%= (dependency.do_remove == true)? "toremove":"" %> <%= (dependency.do_update == true)? "toupdate":"" %> <%= cycle("odd", "even") %>">
-  <td class=""><%= link_to dependency.project.name, {:controller => 'cua_project_dependencies', :action=> 'index', :project_id => dependency.project} %></td>
+  <td class=""><% if dependency.project == nil then %>-<% else %><%= link_to dependency.project.name, {:controller => 'cua_project_dependencies', :action=> 'index', :project_id => dependency.project} %><% end %></td>
   <td class=""><%= dependency.library %></td>
   <td class=""><%= dependency.version %></td>
   <td class=""><%= dependency.state %></td>
