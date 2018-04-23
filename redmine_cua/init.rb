@@ -1,8 +1,13 @@
+
+require 'redmine'
+
+require 'redmine_cua'
+
 Redmine::Plugin.register :redmine_cua do
   name 'Redmine Cua plugin'
-  author 'Author name'
-  description 'This is a plugin for Redmine'
-  version '0.0.1'
+  author 'Jean-Baptiste Nahan'
+  description 'Redmine plugin for Composer PHP dependencies'
+  version '0.1.0'
   url 'http://example.com/path/to/plugin'
   author_url 'http://example.com/about'
 
@@ -13,5 +18,7 @@ Redmine::Plugin.register :redmine_cua do
   	permission :project_dependencies, {
   		:cua_project_dependencies => [:index]
   	}
+
+    permission :edit_cua_settings, {:cua_settings => [:save_settings]}
   end
 end
