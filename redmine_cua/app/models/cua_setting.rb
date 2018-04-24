@@ -8,6 +8,6 @@ class CuaSetting < ActiveRecord::Base
 
   ## Validations
   validates :project_id, presence: true, uniqueness: true
-  validates :url,        presence: true
+  #validates :url,        presence: true
 
 end

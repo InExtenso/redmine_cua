@@ -1,4 +1,5 @@
 fr:
+  label_cua: "Composer Update Analyser"
   field_state: "Etat"
   field_update_to: "MàJ vers"
   field_update_to_version: "MàJ version"
@@ -19,3 +20,9 @@ fr:
   label_cua_php_bin_desc: "Chemin complet ou nom de l'exécutable PHP à utiliser avec composer."
   label_cua_check_update: "Activer la recherche des mises à jour des dépendances ?"
   label_cua_check_security: "Activer la vérification de sécurité des dépendances ?"
+  notice_settings_updated: "Paramètres mis à jour"
+
+  
+  ### PERMISSIONS
+  permission_project_dependencies: "Voir les dépendances du projet"
+  permission_edit_cua_settings: "Modifier les paramètres"

@@ -1,6 +1,7 @@
 # English strings go here for Rails i18n
 en:
   # my_label: "My label"
+  label_cua: "Composer Update Analyser"
   field_state: "State"
   field_update_to: "Update to"
   field_update_to_version: "Update version"
@@ -21,3 +22,9 @@ en:
   label_cua_php_bin_desc: "The full path or the php exec name used for run composer."
   label_cua_check_update: "Enable the dependencies update ?"
   label_cua_check_security: "Enable the dependencies security check ?"
+  notice_settings_updated: "Settings updated"
+
+  
+  ### PERMISSIONS
+  permission_project_dependencies: "View the project's dependencies"
+  permission_edit_cua_settings: "Edit settings"

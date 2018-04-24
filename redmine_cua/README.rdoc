@@ -1,3 +1,13 @@
 = redmine_cua
 
 Description goes here
+
+
+Install
+
+copy this folder into redmine/plugins folder.
+
+Run this command for update db.
+
+rake redmine:plugins:migrate NAME=redmine_cua RAILS_ENV=production
+

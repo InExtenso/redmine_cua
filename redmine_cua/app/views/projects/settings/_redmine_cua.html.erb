@@ -1,0 +1,29 @@
+<%= error_messages_for 'cua_setting' %>
+
+
+<%= form_for @cua_setting, url:  cua_settings_save_path(@project),
+                             html: { method: :put } do |f| %>
+  <div class="box tabular">
+    <p>
+      <label><%= l(:label_cua_lock_path)%></label>
+      <%= f.text_field :lock_path, size: 50 %>
+      <br>
+      <em><%= l(:label_cua_lock_path_desc)%></em>
+    </p>
+    <p>
+      <label><%= l(:label_cua_php_bin)%></label>
+      <%= f.text_field :php_bin, size: 50 %>
+      <br>
+      <em><%= l(:label_cua_php_bin_desc)%></em>
+    </p>
+    <p>
+      <label><%= l(:label_cua_check_update)%></label>
+      <%= f.check_box :check_update, {}, 'true' %>
+    </p>
+    <p>
+      <label><%= l(:label_cua_check_security)%></label>
+      <%= f.check_box :check_security, {}, 'true' %>
+    </p>
+  </div>
+  <%= submit_tag l(:button_save) %> 
+<% end %>

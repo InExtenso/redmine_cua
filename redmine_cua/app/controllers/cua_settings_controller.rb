@@ -1,4 +1,4 @@
-class CuaProjectSettingsController < ApplicationController
+class CuaSettingsController < ApplicationController
   unloadable
 
   # Redmine ApplicationController method
@@ -23,7 +23,12 @@ class CuaProjectSettingsController < ApplicationController
 
 
     def load_cua_settings
-      @cua_setting = @project.cua_setting
+      if @project.cua_setting.nil?
+        @cua_setting = @project.build_cua_setting
+      else
+        @cua_setting = @project.cua_setting
+      end
+      
     end
 
 end
