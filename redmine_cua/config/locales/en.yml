@@ -13,7 +13,7 @@ en:
   install: "To install"
   remove: "To remove"
   all_dependencies: "All dependencies"
-  dependencies: "dependencies"
+  dependencies: "Dependencies"
   state_count: "Statistic"
   project_dependencies: "Project's dependencies"
   label_cua_lock_path: ".lock path"
@@ -23,6 +23,10 @@ en:
   label_cua_check_update: "Enable the dependencies update ?"
   label_cua_check_security: "Enable the dependencies security check ?"
   notice_settings_updated: "Settings updated"
+
+  all_security_issues: "All security issues"
+  project_security_issues: "Project's security issues"
+  security: "Security"
 
   
   ### PERMISSIONS

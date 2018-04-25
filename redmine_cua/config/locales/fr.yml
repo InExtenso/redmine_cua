@@ -22,6 +22,10 @@ fr:
   label_cua_check_security: "Activer la vérification de sécurité des dépendances ?"
   notice_settings_updated: "Paramètres mis à jour"
 
+  all_security_issues: "Tous les problèmes de sécurité"
+  project_security_issues: "Problèmes de sécurité du projet"
+  security: "Sécurité"
+
   
   ### PERMISSIONS
   permission_project_dependencies: "Voir les dépendances du projet"

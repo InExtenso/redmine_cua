@@ -1,0 +1,72 @@
+
+<style type="text/css">
+.toremove{
+	background-color: red !important;
+	color: white !important;
+	font-weight: bold;
+}
+.toupdate{
+	background-color: orange !important;
+}
+
+</style>
+
+<div class="contextual">
+
+</div>
+<h2><%= l(:all_security_issues) %></h2>
+<% if @security_issues.any? %>
+<div class="autoscroll">
+<table class="list">
+  <thead><tr>
+  <th><%= link_to l(:field_project), {:action => 'indexall', :field => 'project_id', :order => ((@field=='project_id' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_name), {:action => 'indexall', :field => 'library', :order => ((@field=='library' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_version), {:action => 'indexall', :field => 'version', :order => ((@field=='version' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_state), {:action => 'indexall', :field => 'state', :order => ((@field=='state' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+  <th><%= link_to l(:field_last_update), {:action => 'indexall', :field => 'updated_at', :order => ((@field=='updated_at' && @order=='ASC')? 'DESC' : 'ASC')} %></th>
+    <th></th>
+    <th></th>
+  </tr></thead>
+  <tbody>
+<% for security_issue in @security_issues -%>
+  <tr class="<%= (security_issue.do_secure == true)? "toremove":"" %> <%= cycle("odd", "even") %>">
+  <td class=""><% if security_issue.project == nil then %>-<% else %><%= link_to security_issue.project.name, {:controller => 'cua_project_security_issues', :action=> 'index', :project_id => security_issue.project} %><% end %></td>
+  <td class=""><%= security_issue.library %></td>
+  <td class=""><%= security_issue.version %></td>
+  <td class=""><%= security_issue.state %></td>
+  <td class=""><%= format_time(security_issue.updated_at) %></td>
+    <td class="buttons">&nbsp;
+    </td>
+  </tr>
+<% end -%>
+  </tbody>
+</table>
+</div>
+<% else %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+
+<% content_for :sidebar do %>
+<h3><%= l(:state_count) %></h3>
+<% if @states.any? %>
+<div class="">
+<table class="list">
+  <thead><tr>
+  <th><%= l(:field_state) %></th>
+  <th><%= l(:field_count) %></th>
+  </tr></thead>
+  <tbody>
+<% for state in @states -%>
+  <tr class="<%= cycle("odd", "even") %>">
+  <td class=""><%= l(state[0]) %></td>
+  <td class=""><%= state[1] %></td>
+  </tr>
+<% end -%>
+  </tbody>
+</table>
+</div>
+
+<% else %>
+<p class="nodata"><%= l(:label_no_data) %></p>
+<% end %>
+<% end %>
