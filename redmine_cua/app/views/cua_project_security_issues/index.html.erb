@@ -35,6 +35,16 @@
     <td class="buttons">&nbsp;
     </td>
   </tr>
+  <tr>
+    <td colspan="5" style="text-align: left;">
+      <%
+        details = ActiveSupport::JSON.decode(security_issue.details)
+        details.each do | l1, cve | -%>
+          <a href="<%= cve["link"] %>" target="_cve"><%= cve["title"] %></a><br>
+        <% end
+      -%>
+    </td>
+  </tr>
 <% end -%>
   </tbody>
 </table>

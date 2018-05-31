@@ -30,3 +30,6 @@ fr:
   ### PERMISSIONS
   permission_project_dependencies: "Voir les dépendances du projet"
   permission_edit_cua_settings: "Modifier les paramètres"
+
+  open: Ouvert
+  fixed: Résolu
